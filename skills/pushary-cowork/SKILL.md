@@ -1,0 +1,31 @@
+---
+name: pushary-cowork
+description: Reach the user on their phone through the Pushary connector. Use when a task finishes, when you need a decision or approval, when you are blocked or hit an error, or when the user asks to be notified, pinged, or kept in the loop while away.
+---
+
+# Pushary: notify the user and ask questions on their phone
+
+Pushary is connected as a custom connector. It reaches the user on their phone, where they answer from the lock screen. Use it proactively. Do not wait for the user to ask.
+
+## When to reach out
+
+- **You need a decision or a clarifying answer.** Call `ask_user` instead of guessing or stalling. Use type `confirm` for yes or no, `select` for a fixed set of options, and `input` for free text.
+- **You are about to do something risky or irreversible.** Deleting or overwriting files, spending money, sending anything external, bulk changes: call `ask_user` with type `confirm` first and wait for approval.
+- **A task finishes.** Call `send_notification` with a short summary of what changed.
+- **You are blocked or hit an error you cannot resolve.** Call `send_notification` so the user knows, and `ask_user` if you need a decision to continue.
+
+## How to wait for answers
+
+- A question stays open for 10 minutes. `wait_for_answer` blocks for up to about 55 seconds per call. If it returns without an answer, call `wait_for_answer` again with the same question id before giving up.
+- On long tasks where the user might be away, prefer `send_notification` with `context.askQuestion` over a blocking `ask_user`. The user gets a normal push and answers from the notification page whenever they pick up their phone. Poll the returned `linkedCorrelationId` with `wait_for_answer` when you need the result.
+- Use `cancel_question` to retract a question that is no longer needed.
+
+## Conventions
+
+- Pass `agentName` as `Claude Cowork - <task name>` on every call, so the user knows which session is asking and their dashboard groups the session correctly.
+- Keep questions short and decision-shaped. One sentence of context, then the ask. The user is reading a lock screen, not a report.
+- Do not ask through Pushary for things you can safely decide yourself. Reserve it for real decisions, risky steps, completions, and errors, so a ping always means something.
+
+## If the connector is missing
+
+If no Pushary tools are available in this session, the connector is not enabled. Tell the user once: Pushary is not connected in this session. Enable it under Customize, Connectors, or set it up at https://pushary.com/docs/agents/guides/claude-desktop. Then continue the task without it.
