@@ -1,6 +1,9 @@
 ---
 name: pushary-cowork
+version: 0.1.0
 description: Reach the user on their phone through the Pushary connector. Use when a task finishes, when you need a decision or approval, when you are blocked or hit an error, or when the user asks to be notified, pinged, or kept in the loop while away.
+metadata:
+  tags: notifications, push, mcp, human-in-the-loop, cowork, claude, alerts, approvals
 ---
 
 # Pushary: notify the user and ask questions on their phone
