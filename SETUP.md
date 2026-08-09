@@ -4,7 +4,7 @@ Pushary sends Cowork's questions and completion notices to your phone as push no
 
 ## 1. Get your connector link
 
-1. Sign up at [pushary.com](https://pushary.com/sign-up) (agent plans start with a 7-day trial at $9.99 per month)
+1. Sign up at [pushary.com](https://pushary.com/sign-up) (agent plans start with a 3-day trial at $9.99 per month)
 2. Open [Settings, Connections](https://pushary.com/dashboard/agent/settings)
 3. In the **Claude (claude.ai, Desktop, and Cowork)** section, click **Get connector link** and copy it
 
