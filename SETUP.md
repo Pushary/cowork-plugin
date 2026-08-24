@@ -20,7 +20,9 @@ Connectors are account level, so the same connector is available inside Cowork o
 
 ## 3. Make Cowork reach out on its own
 
-This plugin's skill teaches Claude when to notify you and how to ask. For belt and braces, also paste the standing instructions block from your [Pushary dashboard](https://pushary.com/dashboard/agent/settings) into Claude **Settings**, then **Cowork**, so every session asks before risky steps and pings you when tasks finish.
+This step is required, not optional. Cowork does not read `CLAUDE.md`, `AGENTS.md`, or any other repo memory file, so instructions you put there reach nothing and the session keeps going quietly as if you were watching it.
+
+Copy the standing instructions block from your [Pushary dashboard](https://pushary.com/dashboard/agent/settings) and paste it into Claude under **Settings**, then **Cowork**. Every session then asks before risky steps, pings you when tasks finish, and leaves a question open when you are likely to want to reply.
 
 ## 4. Get your phone ready
 
@@ -29,6 +31,12 @@ Install the Pushary app ([iPhone](https://pushary.com/download) or [Android](htt
 ## What this is, honestly
 
 Cowork has no hooks, so this is a cooperative integration: Claude decides when to call the tools, guided by the skill and your standing instructions. Nothing physically blocks Cowork until you answer. If you want enforced approvals that stop a command until you say yes, use Pushary with Claude Code, Codex, Gemini CLI, Cursor, or Hermes: `npx @pushary/agent-hooks setup`.
+
+The connector is outbound only, too. Cowork reaches your phone; your phone cannot push work into a Cowork session, because there is no hook and nothing running on your machine to pick it up. In practice:
+
+- You can answer any question Cowork asks, of any type, from the lock screen.
+- You cannot reply to a finished task unless Cowork left a question open before it stopped. The standing instructions tell it to do that whenever a reply is likely.
+- You cannot start a new Cowork task from the Pushary app. Messaging and launching agents from your phone are CLI features, because the CLI runs on your machine and can pick the work up. The app hides both controls on a Cowork session rather than queueing something that would never arrive.
 
 ## Example prompts
 
