@@ -1,6 +1,6 @@
 {
   "name": "pushary",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Phone notifications and human-in-the-loop for Claude Cowork. Cowork pings your phone when a task finishes and asks you questions you answer from your lock screen.",
   "author": {
     "name": "Pushary",
