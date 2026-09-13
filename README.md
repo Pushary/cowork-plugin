@@ -1,38 +1,25 @@
 # Pushary for Claude Cowork
 
-Phone notifications and human-in-the-loop for [Claude Cowork](https://pushary.com/claude-cowork-notifications). Cowork pings your phone when a task finishes and asks you questions you answer from your lock screen, so long tasks never sit frozen waiting for you.
+Connect Cowork’s questions and task updates to your phone and Mac notch.
 
-- **Notify when done.** Cowork calls `send_notification` with a summary when a task completes or fails.
-- **Ask before risky steps.** Cowork calls `ask_user` before deleting, overwriting, spending, or sending anything external. You tap yes or no on your phone.
-- **One inbox for every agent.** The same Pushary account covers Claude Code, Codex, Cursor, and Hermes, with an audit trail of every question and answer.
+## Setup
 
-## Install
+Install this plugin in Claude to load the Cowork skill and the bundled remote MCP connector. Sign in with the same Pushary account used by your phone and Mac app, then enable Pushary in the task. If the connector is not added by your Claude version, add `https://pushary.com/api/mcp/mcp` under **Customize > Connectors > Add custom connector**. Leave OAuth Client ID and Secret empty.
 
-Follow [SETUP.md](./SETUP.md). Three steps, and none of them is optional:
+For the manual path, run `npx @pushary/agent-hooks@latest cowork` or follow [SETUP.md](SETUP.md). No local CLI installation is required for the connector. The CLI command prints setup instructions; it does not configure your Claude account automatically.
 
-1. Paste your Pushary connector link into Claude under **Settings**, **Connectors**.
-2. Enable Pushary inside your Cowork session under **Customize**, **Connectors**.
-3. Paste the standing instructions block into Claude under **Settings**, **Cowork**. Cowork does not read `CLAUDE.md`, `AGENTS.md`, or any repo memory file, so this is the only place a proactive-use directive reaches it.
+Use the bundled skill or add standing instructions in **Settings > Cowork** to guide proactive use. Ask Cowork a harmless Pushary test question, answer from your phone or notch, and verify Cowork receives the answer. A successful notification alone does not verify answers.
 
-The skill in this repo is also published to skills.sh:
+## Included
 
-```bash
-npx skills add Pushary/pushary-skill
-```
+- `.mcp.json`: the public OAuth connector, with no embedded key.
+- `skills/pushary-cowork/SKILL.md`: when to ask, notify, and hand off unanswered questions.
+- `SETUP.md`: account setup, verification, and recovery.
 
-## What's in this plugin
+## Capabilities
 
-- `skills/pushary-cowork/SKILL.md`: teaches Claude when to notify you and how to ask questions through the connector, including the async pattern for long unattended sessions.
-- `SETUP.md`: the full connector setup walkthrough.
+This Pushary connector is cooperative: Claude chooses when to call its tools. It does not intercept native permission prompts, send new work into an ended turn, or launch Cowork tasks. It can wait for a question it asked and receive your answer on that existing request.
 
-## Honest scope
+Cowork supports plugin hooks on supported versions. This package does not install or verify native permission hooks; that support must be tested separately for each surface and version. Cowork may run locally or in the cloud, while remote MCP connector calls come from Anthropic’s infrastructure.
 
-Cowork exposes no hooks, so this integration is cooperative: Claude decides when to call the tools, guided by the skill and your standing instructions. It does not physically block an action until you approve. Enforced approvals are available for Claude Code, Codex, Gemini CLI, Cursor, and Hermes via [`@pushary/agent-hooks`](https://pushary.com/docs).
-
-The connector is also outbound only. Cowork can reach your phone; your phone cannot push work into a Cowork session. So you can answer anything Cowork asks, but you cannot reply to a finished task or start a new one from the app unless Cowork left a question open before it stopped. The standing instructions tell it to do exactly that when a reply is likely.
-
-## Links
-
-- [Docs: Claude.ai, Claude Desktop, and Cowork](https://pushary.com/docs/agents/guides/claude-desktop)
-- [Pushary dashboard](https://pushary.com/dashboard/agent/settings)
-- Support: aadil@pushary.com
+[Full guide](https://pushary.com/docs/agents/guides/claude-desktop) · [Plugin support](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
