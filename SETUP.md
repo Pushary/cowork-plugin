@@ -10,7 +10,7 @@ https://pushary.com/api/mcp/mcp
 
 Leave OAuth Client ID and Secret empty. Sign in with the same Pushary account used by your phone and Mac app. The link contains no key. On versions where installing the plugin does not add its connector, add the URL manually.
 
-You can print these steps from any terminal with `npx @pushary/agent-hooks@latest cowork`. `setup --agents cowork` uses the same path and does not install CLI hooks, save a CLI key, or start a daemon. Printing the steps does not mean your account is connected.
+You can print these steps from any terminal with `npx pushary@latest cowork`. `setup --agents cowork` uses the same path and does not install CLI hooks, save a CLI key, or start a daemon. Printing the steps does not mean your account is connected.
 
 ## 2. Enable tools in the task
 
