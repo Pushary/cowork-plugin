@@ -1,6 +1,6 @@
 {
   "name": "pushary-claude",
-  "description": "Pushary questions and task updates for Claude Chat, Cowork, and Claude Code.",
+  "description": "Pushary questions and task updates for Claude Cowork.",
   "owner": {
     "name": "Pushary",
     "email": "aadil@pushary.com"
@@ -9,7 +9,7 @@
     {
       "name": "pushary",
       "source": "./",
-      "description": "Get Claude task updates and answer its questions from your phone or Mac."
+      "description": "Get Cowork task updates and answer its questions from your phone or Mac through the Pushary connector."
     }
   ]
 }
