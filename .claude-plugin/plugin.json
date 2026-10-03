@@ -1,7 +1,7 @@
 {
   "name": "pushary",
   "displayName": "Pushary for Cowork",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Get Cowork task updates and answer its questions from your phone or Mac through the Pushary connector.",
   "author": {
     "name": "Pushary",
