@@ -1,20 +1,22 @@
 {
   "name": "pushary",
-  "version": "0.1.3",
-  "description": "Phone notifications and human-in-the-loop for Claude Cowork. Cowork pings your phone when a task finishes and asks you questions you answer from your connected devices.",
+  "displayName": "Pushary for Claude",
+  "version": "0.2.0",
+  "description": "Get Claude task updates and answer its questions from your phone or Mac. Works with Chat, Cowork, and Claude Code through the Pushary connector.",
   "author": {
     "name": "Pushary",
     "email": "aadil@pushary.com",
     "url": "https://pushary.com"
   },
-  "homepage": "https://pushary.com/claude-cowork-notifications",
+  "homepage": "https://pushary.com/docs/agents/guides/claude-desktop",
   "repository": "https://github.com/Pushary/cowork-plugin",
   "license": "MIT",
   "keywords": [
     "notifications",
     "push-notifications",
-    "human-in-the-loop",
-    "approvals",
+    "claude",
+    "claude-chat",
+    "claude-code",
     "cowork",
     "mcp"
   ]
