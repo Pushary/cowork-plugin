@@ -10,6 +10,7 @@
   },
   "homepage": "https://pushary.com/claude-cowork-notifications",
   "repository": "https://github.com/Pushary/cowork-plugin",
+  "privacyPolicyUrl": "https://pushary.com/privacy",
   "license": "MIT",
   "keywords": [
     "notifications",
