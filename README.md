@@ -35,6 +35,8 @@ Answer from your phone or Mac and check that Cowork receives the answer. Then tr
 When you finish this task, send me a Pushary notification with the result.
 ```
 
+[Hear a real Claude Code approval call](https://pushary.com/calls?utm_source=github&utm_medium=readme&utm_campaign=phone_answer&utm_content=cowork_call#recorded-claude-code-call) or [try the three-agent exercise](https://github.com/Pushary/pushary-skill/blob/main/examples/which-agent-is-waiting.md).
+
 ## What it can do
 
 The shared skill guides when Cowork asks questions and sends updates. Cowork chooses when to call these tools. The plugin can receive an answer to a question it asked; it does not intercept native permission prompts, start new tasks, or resume an ended turn. It installs no native hooks.
